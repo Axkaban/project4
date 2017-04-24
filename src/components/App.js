@@ -3,6 +3,8 @@ import '../../styles/App.css';
 import Axios from 'axios';
 import Selection from './selection';
 import ProductSelection from './productSelection';
+import DisplayProduct from './displayProduct';
+import NavBar from './navBar';
 
 class App extends Component {
     
@@ -24,43 +26,34 @@ class App extends Component {
         //     console.log(data);
         // })
          let prod=this.state.product;
-        //  let obj = {};
+        let productArray = [];
         // // console.log(prod);
          prod.map((product)=>{
             if(product.product_type === type){
                 // obj = product;
-                // this.state.productSelection.push(product);
+                productArray.push(product);
             
-            this.setState((state)=>{
-                    this.state.productSelection.push(product);
-                    return state;
-                })
+            
               }  // console.log(this.state.productSelection);
+
         });
-        // this.setState((state)=>{
-        //     state.productSelection = 
-        // })
+    
+        this.setState((state)=>{
+            state.productSelection = productArray;
+            return state;
+        })
     } // end of selectFromType
 
-    // creates a preview of the selection with the same type 
-    createSelection(){
-        if(!this.state.productSelection){
-            return <p> Choose wisely</p>
-        }
-        else {
-            // console.log(this.state.productSelection);
-            let selected = this.state.productSelection;
-            console.log(selected);
-           return selected.map((product) => {
-            // <ProductSelection productsOfType={product} />
-            console.log(product)
-            })
-        }
-        // else{
-        //     // <ProductSelection productsOfType={this.state.productSelection} />
-        //     console.log(this.state.productSelection.image)
-        // }
-    } //end of createSelection 
+    // Specific view of product with details passed to state
+    singleProduct(id){
+        const product = this.state.product.find(p => p.id ===id);
+        console.log(product);
+        this.setState((state)=>{
+            state.currentProduct= product;
+            return state;
+        })
+    }//end of singleProduct function
+   
 
     componentDidMount(){
         Axios.get('/products')
@@ -77,23 +70,26 @@ class App extends Component {
             })
         });
     };
-   
-
+ 
     render() {
         // console.log(this.state.product);
         
         return (
-            <div>
-                <h3>App component</h3>
-                <div><Selection selectFromType={this.selectFromType.bind(this)} /></div>
-                <div>
-                    
-                    <div>
-                    {this.createSelection()}
+            <div className='biome'>
+                <NavBar />
+                <div className='app-wrapper'>
+                    <div className='type-selection'>
+                        <Selection selectFromType={this.selectFromType.bind(this)} />
+                    </div>
+
+                    <div className='product-display'>
+                        <DisplayProduct oneProduct={this.state.currentProduct} />
+                        <div>
+                        <ProductSelection productsOfType={this.state.productSelection} selectOne={this.singleProduct.bind(this)}/>
+                        </div>
                     </div>
                 </div>
-                <div></div>
-            </div>
+            </div> 
         );
     }
 }

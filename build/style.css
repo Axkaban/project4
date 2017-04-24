@@ -1,0 +1,49 @@
+.biome {
+    display: flex;
+    flex-direction: column;
+}
+/*Main app*/
+.app-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+/*The selection section*/
+.type-selection {
+    flex-direction: column;
+}
+
+/*Nav bar*/
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*Display and type scroll--------------*/
+
+.product-display{
+    display: flex;
+    flex-direction: column;
+}
+
+  /*products by type*/
+
+  .type-result{
+      display: flex;
+      flex-direction: row;
+      max-width: 1100px;
+      overflow-x: scroll;
+
+  }
+  /*images*/
+
+  img {
+      max-height: 40vh;
+      max-width: 35vh;
+
+  }
+
+  .type-image {
+      /*object-position: center;*/
+      height: 40vh;
+  }
