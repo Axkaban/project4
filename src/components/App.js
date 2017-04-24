@@ -5,6 +5,9 @@ import Selection from './selection';
 import ProductSelection from './productSelection';
 import DisplayProduct from './displayProduct';
 import NavBar from './navBar';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement('#root');
 
 class App extends Component {
     
@@ -13,7 +16,8 @@ class App extends Component {
         this.state={
             product: '',
             productSelection: [],
-            currentProduct: ''
+            currentProduct: '',
+            showModal: false
         }
     }
 // on the click listener from the selection component. It takes a hardcoded imput from the click and checks
@@ -70,13 +74,33 @@ class App extends Component {
             })
         });
     };
+    //To show modal of information
+    openModal(){
+        console.log('click');
+        this.setState((state)=>{
+            state.showModal = true;
+            return state;
+        })
+    };
+
+    //To close modal of information
+    closeModal(){
+        this.setState((state) => {
+            state.showModal = false;
+            return state;
+        })
+    };
  
     render() {
         // console.log(this.state.product);
         
         return (
             <div className='biome'>
-                <NavBar />
+                <ReactModal isOpen={this.state.showModal} contentLabel='see if it works' onRequestClose={this.closeModal.bind(this)}>
+                    <p>Some text</p>
+                    <button closeModal={this.closeModal.bind(this)}>close</button>
+                </ReactModal>
+                <NavBar modalOpener={this.openModal.bind(this)}/>
                 <div className='app-wrapper'>
                     <div className='type-selection'>
                         <Selection selectFromType={this.selectFromType.bind(this)} />
@@ -93,5 +117,6 @@ class App extends Component {
         );
     }
 }
+
 
 export default App;
