@@ -10229,6 +10229,14 @@ var _axios = __webpack_require__(90);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _selection = __webpack_require__(215);
+
+var _selection2 = _interopRequireDefault(_selection);
+
+var _productSelection = __webpack_require__(216);
+
+var _productSelection2 = _interopRequireDefault(_productSelection);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10240,27 +10248,100 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
     _inherits(App, _Component);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = {
+            product: '',
+            productSelection: [],
+            currentProduct: ''
+        };
+        return _this;
     }
+    // on the click listener from the selection component. It takes a hardcoded imput from the click and checks
+    // for the objects in the product state that have it. sets productSelection's state with it.
+
 
     _createClass(App, [{
-        key: 'componentDidMount',
+        key: 'selectFromType',
+        value: function selectFromType(type) {
+            var _this2 = this;
 
-        // state = {  }
+            console.log('click');
+            // Axios.get(`/products/${1}`)
+            // .then(data => {
+            //     console.log(data);
+            // })
+            var prod = this.state.product;
+            //  let obj = {};
+            // // console.log(prod);
+            prod.map(function (product) {
+                if (product.product_type === type) {
+                    // obj = product;
+                    // this.state.productSelection.push(product);
+
+                    _this2.setState(function (state) {
+                        _this2.state.productSelection.push(product);
+                        return state;
+                    });
+                } // console.log(this.state.productSelection);
+            });
+            // this.setState((state)=>{
+            //     state.productSelection = 
+            // })
+        } // end of selectFromType
+
+        // creates a preview of the selection with the same type 
+
+    }, {
+        key: 'createSelection',
+        value: function createSelection() {
+            if (!this.state.productSelection) {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    ' Choose wisely'
+                );
+            } else {
+                // console.log(this.state.productSelection);
+                var selected = this.state.productSelection;
+                console.log(selected);
+                return selected.map(function (product) {
+                    // <ProductSelection productsOfType={product} />
+                    console.log(product);
+                });
+            }
+            // else{
+            //     // <ProductSelection productsOfType={this.state.productSelection} />
+            //     console.log(this.state.productSelection.image)
+            // }
+        } //end of createSelection 
+
+    }, {
+        key: 'componentDidMount',
         value: function componentDidMount() {
+            var _this3 = this;
+
             _axios2.default.get('/products').then(function (data) {
                 // console.log(data.data[0].product_name);
-                data.data.map(function (d, i) {
-                    console.log(d.product_name + ' has an index of ' + i);
+                //   let arr =[];
+                //        data.data.map((d, i) => {
+                //             arr.push(d);
+
+                //   });
+                _this3.setState(function (state) {
+                    state.product = data.data;
+                    return state;
                 });
             });
         }
     }, {
         key: 'render',
         value: function render() {
+            // console.log(this.state.product);
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -10268,7 +10349,22 @@ var App = function (_Component) {
                     'h3',
                     null,
                     'App component'
-                )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(_selection2.default, { selectFromType: this.selectFromType.bind(this) })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        this.createSelection()
+                    )
+                ),
+                _react2.default.createElement('div', null)
             );
         }
     }]);
@@ -25564,6 +25660,126 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 214 */,
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(52);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Selection = function Selection(props) {
+
+    return _react2.default.createElement(
+        'div',
+        { className: 'selection' },
+        _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Fashion");
+                    } },
+                'Fashion'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Fashion/Industrial/Medical");
+                    } },
+                'Fashion/Industrial/Medical'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Household");
+                    } },
+                'Household'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Industrial");
+                    } },
+                'Industrial'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Industrial/Fashion");
+                    } },
+                'Industrial/Fashion'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Packaging");
+                    } },
+                'Packaging'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Supplies");
+                    } },
+                'Supplies'
+            ),
+            _react2.default.createElement(
+                'li',
+                { onClick: function onClick(e) {
+                        props.selectFromType("Technology");
+                    } },
+                'Technology'
+            )
+        )
+    );
+};
+
+exports.default = Selection;
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(52);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductSelection = function ProductSelection(props) {
+    console.log(props.productsOfType.product_name);
+    return _react2.default.createElement(
+        'div',
+        { classname: 'product-select' },
+        _react2.default.createElement('img', { src: props.productsOfType.image, alt: '' }),
+        _react2.default.createElement(
+            'h5',
+            null,
+            props.productsOfType.product_name
+        )
+    );
+};
+exports.default = ProductSelection;
 
 /***/ })
 /******/ ]);
