@@ -17,7 +17,8 @@ class App extends Component {
             product: '',
             productSelection: [],
             currentProduct: '',
-            showModal: false
+            showModal: false,
+            textOnModal: ''
         }
     }
 // on the click listener from the selection component. It takes a hardcoded imput from the click and checks
@@ -73,6 +74,15 @@ class App extends Component {
                 return state;
             })
         });
+
+        Axios.get('https://www.malla.io/api/-KiWU-80CKf3jtWPNhnL.json?format=raw')
+        .then(data => { 
+            console.log(data.data)
+            this.setState((state)=> {
+                state.textOnModal= data.data;
+                return state;
+            })
+        });
     };
     //To show modal of information
     openModal(){
@@ -90,15 +100,30 @@ class App extends Component {
             return state;
         })
     };
+    
  
     render() {
         // console.log(this.state.product);
         
         return (
             <div className='biome'>
-                <ReactModal isOpen={this.state.showModal} contentLabel='see if it works' onRequestClose={this.closeModal.bind(this)}>
-                    <p>Some text</p>
-                    <button closeModal={this.closeModal.bind(this)}>close</button>
+                <ReactModal 
+                isOpen={this.state.showModal} 
+                contentLabel='see if it works' 
+                onRequestClose={this.closeModal.bind(this)}
+                className="Modal"
+           overlayClassName="Overlay">
+                   <div>
+                       <div>{this.state.textOnModal.label5}</div>
+                    <div>{this.state.textOnModal.label2}</div>
+                    <br/>
+                    <div>{this.state.textOnModal.label6}</div>
+                    <div>{this.state.textOnModal.label3}</div>
+                    <br/>
+                    <div>{this.state.textOnModal.label7}</div>
+                    <div>{this.state.textOnModal.label4}</div>
+                    </div>
+                    <button onClick={this.closeModal.bind(this)}>close</button>
                 </ReactModal>
                 <NavBar modalOpener={this.openModal.bind(this)}/>
                 <div className='app-wrapper'>

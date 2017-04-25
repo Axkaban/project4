@@ -47,3 +47,22 @@
       /*object-position: center;*/
       height: 40vh;
   }
+
+  /*Modal styles*/
+
+.Modal {
+    position: absolute;
+    background-color: hsl(0, 0%, 96%); 
+    margin-top: 5%;
+    margin-left: 2%;
+    height:80%; 
+    width:95%;
+}
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(240, 4%, 39%, .8);
+  }
