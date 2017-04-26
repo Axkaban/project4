@@ -27155,7 +27155,7 @@ var App = function (_Component) {
                             _victory.VictoryChart,
                             {
                                 padding: { top: 0, left: 50, right: 50, bottom: 30 },
-                                width: 1000, height: 300, scale: { x: "time" }, style: chartStyle
+                                width: 900, height: 300, scale: { x: "time" }, style: chartStyle
 
                             },
                             _react2.default.createElement(_victory.VictoryLine, {
@@ -62724,24 +62724,28 @@ var DisplayProduct = function DisplayProduct(props) {
         { className: "selected-product" },
         _react2.default.createElement("img", { src: props.oneProduct.image, alt: "" }),
         _react2.default.createElement(
-            "h3",
-            null,
-            props.oneProduct.product_name
-        ),
-        _react2.default.createElement(
-            "h5",
-            null,
-            props.oneProduct.company
-        ),
-        _react2.default.createElement(
-            "a",
-            { href: props.oneProduct.url },
-            "Website"
-        ),
-        _react2.default.createElement(
-            "p",
-            null,
-            props.oneProduct.description
+            "div",
+            { className: "description" },
+            _react2.default.createElement(
+                "h3",
+                null,
+                props.oneProduct.product_name
+            ),
+            _react2.default.createElement(
+                "h5",
+                null,
+                props.oneProduct.company
+            ),
+            _react2.default.createElement(
+                "a",
+                { href: props.oneProduct.url },
+                "Website"
+            ),
+            _react2.default.createElement(
+                "p",
+                null,
+                props.oneProduct.description
+            )
         )
     );
 };
@@ -62876,15 +62880,11 @@ var ProductSelection = function (_Component) {
                             _this2.props.selectOne(p.id);
                         } },
                     _react2.default.createElement(
-                        'div',
-                        { className: 'type-image' },
-                        _react2.default.createElement('img', { src: p.image, alt: '' })
-                    ),
-                    _react2.default.createElement(
                         'h4',
                         null,
                         p.product_name
-                    )
+                    ),
+                    _react2.default.createElement('img', { className: 'type-image', src: p.image, alt: '' })
                 );
             });
         }

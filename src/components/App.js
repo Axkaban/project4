@@ -175,7 +175,7 @@ class App extends Component {
 
           <VictoryChart
             padding={{top: 0, left: 50, right: 50, bottom: 30}}
-            width={1000} height={300} scale={{x: "time"}} style={chartStyle}
+            width={900} height={300} scale={{x: "time"}} style={chartStyle}
             
           >
          

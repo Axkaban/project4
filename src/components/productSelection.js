@@ -12,8 +12,9 @@ selection(props){
         // console.log(p);
     return(
         <div key={i} className='product-select' onClick= {()=>{this.props.selectOne(p.id)}}>
-            <div className='type-image'><img src={p.image} alt=""/></div>
-            <h4>{p.product_name}</h4>
+             <h4>{p.product_name}</h4>
+            <img className='type-image' src={p.image} alt=""/>
+            
         </div>
     )
     })
