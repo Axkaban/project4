@@ -3,7 +3,7 @@ import React from 'react';
 
 const DisplayProduct = (props) => {
     if(!props.oneProduct){
-        return <img src="../bio-me-logo.png" />;
+        return <img className="main-logo" src="https://preview.ibb.co/cwBaVk/bio_me_logo.png"  />;
     }
    
     return (

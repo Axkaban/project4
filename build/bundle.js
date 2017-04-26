@@ -27224,7 +27224,7 @@ var App = function (_Component) {
                         _react2.default.createElement(_displayProduct2.default, { oneProduct: this.state.currentProduct }),
                         _react2.default.createElement(
                             'div',
-                            null,
+                            { className: 'show-case' },
                             _react2.default.createElement(_productSelection2.default, { productsOfType: this.state.productSelection, selectOne: this.singleProduct.bind(this) })
                         )
                     )
@@ -62716,30 +62716,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var DisplayProduct = function DisplayProduct(props) {
     if (!props.oneProduct) {
-        return _react2.default.createElement('img', { src: '../bio-me-logo.png' });
+        return _react2.default.createElement("img", { className: "main-logo", src: "https://preview.ibb.co/cwBaVk/bio_me_logo.png" });
     }
 
     return _react2.default.createElement(
-        'div',
-        { className: 'selected-product' },
-        _react2.default.createElement('img', { src: props.oneProduct.image, alt: '' }),
+        "div",
+        { className: "selected-product" },
+        _react2.default.createElement("img", { src: props.oneProduct.image, alt: "" }),
         _react2.default.createElement(
-            'h3',
+            "h3",
             null,
             props.oneProduct.product_name
         ),
         _react2.default.createElement(
-            'h5',
+            "h5",
             null,
             props.oneProduct.company
         ),
         _react2.default.createElement(
-            'a',
+            "a",
             { href: props.oneProduct.url },
-            'Website'
+            "Website"
         ),
         _react2.default.createElement(
-            'p',
+            "p",
             null,
             props.oneProduct.description
         )
@@ -62791,22 +62791,18 @@ var NavBar = function (_Component) {
             return _react2.default.createElement(
                 'nav',
                 { className: 'navbar' },
-                _react2.default.createElement('img', { className: 'nav-logo', src: '../media/images/biome-logo.jpg', alt: '' }),
-                _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Bio-Me'
-                ),
+                _react2.default.createElement('img', { className: 'nav-logo', src: 'https://preview.ibb.co/gxOHbQ/biome_logo.png' }),
+                _react2.default.createElement('img', { className: 'nav-letters', src: 'https://preview.ibb.co/cFUvVk/bio_me_letters.png', alt: 'bio_me_letters' }),
                 _react2.default.createElement(
                     'h3',
-                    { onClick: function onClick() {
+                    { className: 'Modal-popper', onClick: function onClick() {
                             _this2.props.modalOpener();
                         } },
                     'Learn About Biodegradability'
                 ),
                 _react2.default.createElement(
                     'h3',
-                    null,
+                    { className: 'email-link' },
                     _react2.default.createElement(
                         'a',
                         { href: 'mailto:axelkaban@gmail.com' },

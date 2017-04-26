@@ -178,17 +178,7 @@ class App extends Component {
             width={1000} height={300} scale={{x: "time"}} style={chartStyle}
             
           >
-            {/*<VictoryAxis
-              tickValues={[
-                new Date(1985, 1, 1),
-                new Date(1990, 1, 1),
-                new Date(1995, 1, 1),
-                new Date(2000, 1, 1),
-                new Date(2005, 1, 1),
-                new Date(2010, 1, 1)
-              ]}
-              tickFormat={(x) => new Date(x).getFullYear()}
-            />*/}
+         
             <VictoryLine
               style={{
                 data: {fill: "#FF5E6E"},
@@ -231,7 +221,7 @@ class App extends Component {
 
                     <div className='product-display'>
                         <DisplayProduct oneProduct={this.state.currentProduct} />
-                        <div>
+                        <div className="show-case"> 
                         <ProductSelection productsOfType={this.state.productSelection} selectOne={this.singleProduct.bind(this)}/>
                         </div>
                     </div>
