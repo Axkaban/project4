@@ -1,0 +1,100 @@
+[{
+    "year":1960, 
+    "generated_in_million_tons": 88.1,
+    "Recovery_for_recycling_million_tons": 5.6,
+    "Recovery_for_composting_million_tons": 0,   
+    "per_person_pounds": 2.68,
+    "Recovery_for_recycling_per_person_pounds":0.17,
+    "Recovery_for_composting_per_person_pound":  0
+},
+
+{
+    "year": 1970,
+    "generated_in_million_tons":121.1,
+    "Recovery_for_recycling_million_tons": 8.0,
+    "Recovery_for_composting_million_tons":  0,    
+    "per_person_pounds":3.25,
+    "Recovery_for_recycling_per_person_pounds": 0.22,
+    "Recovery_for_composting_per_person_pound":  0
+},
+
+{
+    "year": 1980,
+    "generated_in_million_tons": 151.6,
+    "Recovery_for_recycling_million_tons": 14.5,
+    "Recovery_for_composting_million_tons":  0,
+    "per_person_pounds":3.66 ,
+    "Recovery_for_recycling_per_person_pounds": 0.35,
+    "Recovery_for_composting_per_person_pound":  0
+},
+
+{
+    "year": 1990,
+    "generated_in_million_tons": 208.3,
+    "Recovery_for_recycling_million_tons": 29.0,
+    "Recovery_for_composting_million_tons":  4.2,
+    "per_person_pounds": 4.57,
+    "Recovery_for_recycling_per_person_pounds": 0.64,
+    "Recovery_for_composting_per_person_pound": 0.09
+},
+
+{
+    "year": 2000,
+    "generated_in_million_tons": 243.5,
+    "Recovery_for_recycling_million_tons": 53.0,
+    "Recovery_for_composting_million_tons":  16.5,
+    "per_person_pounds": 4.74,
+    "Recovery_for_recycling_per_person_pounds": 1.03,
+    "Recovery_for_composting_per_person_pound": 0.32
+},
+
+{
+    "year": 2005,
+    "generated_in_million_tons": 253.7,
+    "Recovery_for_recycling_million_tons": 59.2,
+    "Recovery_for_composting_million_tons": 20.6,
+    "per_person_pounds": 4.69,
+    "Recovery_for_recycling_per_person_pounds": 1.10,
+    "Recovery_for_composting_per_person_pound": 0.38
+},
+
+{
+    "year": 2009,
+    "generated_in_million_tons": 244.6,
+    "Recovery_for_recycling_million_tons": 61.9,
+    "Recovery_for_composting_million_tons": 20.7,
+    "per_person_pounds": 4.37,
+    "Recovery_for_recycling_per_person_pounds": 1.10,
+    "Recovery_for_composting_per_person_pound": 0.37
+},
+
+{
+    "year": 2011,
+    "generated_in_million_tons": 250.5,
+    "Recovery_for_recycling_million_tons": 66.4,
+    "Recovery_for_composting_million_tons": 20.6,
+    "per_person_pounds": 4.41,
+    "Recovery_for_recycling_per_person_pounds": 1.17,
+    "Recovery_for_composting_per_person_pound": 0.36
+},
+
+{
+    "year": 2012,
+    "generated_in_million_tons": 251.0,
+    "Recovery_for_recycling_million_tons": 65.3,
+    "Recovery_for_composting_million_tons": 21.3,
+    "per_person_pounds":  4.38,
+    "Recovery_for_recycling_per_person_pounds": 1.14,
+    "Recovery_for_composting_per_person_pound": 0.37
+},
+
+{
+    "year": 2013,
+    "generated_in_million_tons": 254.1,
+    "Recovery_for_recycling_million_tons": 64.7,
+    "Recovery_for_composting_million_tons": 22.4,
+    "per_person_pounds": 4.40,
+    "Recovery_for_recycling_per_person_pounds": 1.12,
+    "Recovery_for_composting_per_person_pound": 0.39
+}
+]

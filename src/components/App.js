@@ -6,7 +6,10 @@ import ProductSelection from './productSelection';
 import DisplayProduct from './displayProduct';
 import NavBar from './navBar';
 import ReactModal from 'react-modal';
+import BarGroupBrush from ('react-d3-brush').BarGroupBrush;
+import WasteData from '../data.json';
 
+//Renders modal on top of app
 ReactModal.setAppElement('#root');
 
 class App extends Component {
@@ -20,6 +23,9 @@ class App extends Component {
             showModal: false,
             textOnModal: ''
         }
+        // this.method = this.method.
+        this.handleZoom=this.handleZoom.bind(this);
+        this.handleBrush=this.handleBrush.bind(this);
     }
 // on the click listener from the selection component. It takes a hardcoded imput from the click and checks
 // for the objects in the product state that have it. sets productSelection's state with it.
@@ -59,7 +65,7 @@ class App extends Component {
         })
     }//end of singleProduct function
    
-
+//call to get db products and call to get text for modal
     componentDidMount(){
         Axios.get('/products')
         .then(data => {
@@ -100,6 +106,14 @@ class App extends Component {
             return state;
         })
     };
+
+ //Lazyly making a chart-------------------------------------
+ barChart(){
+     const chartData = 
+ }
+
+
+//  end of chart---------------------------------------------
     
  
     render() {
