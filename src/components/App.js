@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../../styles/App.css';
 import Axios from 'axios';
 import Selection from './selection';
@@ -6,11 +7,13 @@ import ProductSelection from './productSelection';
 import DisplayProduct from './displayProduct';
 import NavBar from './navBar';
 import ReactModal from 'react-modal';
-import BarGroupBrush from ('react-d3-brush').BarGroupBrush;
 import WasteData from '../data.json';
+import { VictoryChart, VictoryAxis, VictoryContainer, VictoryLine, VictoryLabel} from 'victory';
+// import Chart from 'chart.js';
 
 //Renders modal on top of app
 ReactModal.setAppElement('#root');
+// const ctx = document.getElementById("myChart");
 
 class App extends Component {
     
@@ -21,11 +24,18 @@ class App extends Component {
             productSelection: [],
             currentProduct: '',
             showModal: false,
-            textOnModal: ''
+            textOnModal: '',
+            WasteData: WasteData,
+            // wasteQuantity:[],
+            // recoveryReTons:[],
+            // recoveryCoTons:[],
+            // WasteYear:[],
+            // wastePerPerson:[],
+            // recoveryRePerson:[],
+            // recoveryCoPerson:[]
         }
         // this.method = this.method.
-        this.handleZoom=this.handleZoom.bind(this);
-        this.handleBrush=this.handleBrush.bind(this);
+    
     }
 // on the click listener from the selection component. It takes a hardcoded imput from the click and checks
 // for the objects in the product state that have it. sets productSelection's state with it.
@@ -89,6 +99,8 @@ class App extends Component {
                 return state;
             })
         });
+
+       
     };
     //To show modal of information
     openModal(){
@@ -107,18 +119,12 @@ class App extends Component {
         })
     };
 
- //Lazyly making a chart-------------------------------------
- barChart(){
-     const chartData = 
- }
 
 
-//  end of chart---------------------------------------------
-    
  
     render() {
         // console.log(this.state.product);
-        
+        const chartStyle = { parent: {minWidth: "100%", marginLeft: "5%"}};
         return (
             <div className='biome'>
                 <ReactModal 
@@ -127,17 +133,95 @@ class App extends Component {
                 onRequestClose={this.closeModal.bind(this)}
                 className="Modal"
            overlayClassName="Overlay">
+           <button className="modal-button" onClick={this.closeModal.bind(this)}>close</button>
                    <div>
-                       <div>{this.state.textOnModal.label5}</div>
-                    <div>{this.state.textOnModal.label2}</div>
+                       <div className="modal-title">{this.state.textOnModal.label5}</div>
+                    <div className="modal-text">{this.state.textOnModal.label2}</div>
                     <br/>
-                    <div>{this.state.textOnModal.label6}</div>
-                    <div>{this.state.textOnModal.label3}</div>
+                    <div className="modal-title">{this.state.textOnModal.label6}</div>
+                    <div className="modal-text">{this.state.textOnModal.label3}</div>
                     <br/>
-                    <div>{this.state.textOnModal.label7}</div>
-                    <div>{this.state.textOnModal.label4}</div>
+                    <h5> Millions of Tons in Waste yearly in the US</h5>
+                     <VictoryChart
+          
+           width={850} height={500} scale={{x: "time", y:"Millions in tons"}} style={chartStyle}
+          >
+            <VictoryLine
+          
+      
+              style={{
+                data: {fill: "#FFB459"},
+                labels: {fontSize: 10},
+              }}
+              
+              data={[
+                {x: new Date(1960, 1, 1), y: 88.1},
+                {x: new Date(1970, 1, 1), y: 121.1},
+                {x: new Date(1980, 1, 1), y: 151.6},
+                {x: new Date(1990, 1, 1), y: 208.3},
+                {x: new Date(2000, 1, 1), y: 243.5},
+                {x: new Date(2005, 1, 1), y: 253.7},
+                {x: new Date(2009, 1, 1), y: 244.6},
+                {x: new Date(2011, 1, 1), y: 250.5},
+                {x: new Date(2012, 1, 1), y: 251.0},
+                {x: new Date(2013, 1, 1), y: 254.1}
+              ]}
+             labels={(datum) => datum.y }
+            />
+
+          </VictoryChart>
+        
+        <h5>Average daily amount in pounds of waste per person every year</h5>
+
+          <VictoryChart
+            padding={{top: 0, left: 50, right: 50, bottom: 30}}
+            width={1000} height={300} scale={{x: "time"}} style={chartStyle}
+            
+          >
+            {/*<VictoryAxis
+              tickValues={[
+                new Date(1985, 1, 1),
+                new Date(1990, 1, 1),
+                new Date(1995, 1, 1),
+                new Date(2000, 1, 1),
+                new Date(2005, 1, 1),
+                new Date(2010, 1, 1)
+              ]}
+              tickFormat={(x) => new Date(x).getFullYear()}
+            />*/}
+            <VictoryLine
+              style={{
+                data: {fill: "#FF5E6E"},
+                labels: {fontSize: 9},
+              }}
+              data={[
+                {x: new Date(1960, 1, 1), y: 2.68},
+                {x: new Date(1970, 1, 1), y: 3.25},
+                {x: new Date(1980, 1, 1), y: 3.66},
+                {x: new Date(1990, 1, 1), y: 4.57},
+                {x: new Date(2000, 1, 1), y: 4.74},
+                {x: new Date(2005, 1, 1), y: 4.69},
+                {x: new Date(2009, 1, 1), y: 4.37},
+                {x: new Date(2011, 1, 1), y: 4.41},
+                {x: new Date(2012, 1, 1), y: 4.38},
+                {x: new Date(2013, 1, 1), y: 4.41}
+              ]}
+              labels={(datum) => datum.y }
+            />
+          </VictoryChart>
+                <div>
+                    <p className="modal-text">If you are interested in learning more about <br/> waste
+                    management in the US through the pas years you can click<br/>
+                    <a href="https://archive.epa.gov/epawaste/nonhaz/municipal/web/html/">here</a>.
+                    <br/>
+                    and If your want to learn about the .68 billion tonnes of average global waste per year,
+                    <br/> you can click <a href="http://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTURBANDEVELOPMENT/0,,contentMDK:23172887~pagePK:210058~piPK:210062~theSitePK:337178,00.html">here</a>.</p>
+                    
+                </div>
+
+                    <div className="modal-title">{this.state.textOnModal.label7}</div>
+                    <div className="modal-text">{this.state.textOnModal.label4}</div>
                     </div>
-                    <button onClick={this.closeModal.bind(this)}>close</button>
                 </ReactModal>
                 <NavBar modalOpener={this.openModal.bind(this)}/>
                 <div className='app-wrapper'>
