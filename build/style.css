@@ -21,7 +21,29 @@ body {
 }
 /*The selection section*/
 .type-selection {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+     background: hsla(213, 9%, 23%, .0); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient( hsla(216, 4%, 56%, .04),hsla(213, 9%, 23%, .6)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient( hsla(216, 4%, 56%, .04),hsl(213, 9%, 23%, .6)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient( hsla(216, 4%, 56%, .04), hsl(213, 9%, 23%, .6)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( hsla(216, 4%, 56%, .04), hsl(213, 9%, 23%, .6)); /* Standard syntax */
+   
+}
+
+li {
+   /*margin: 9%; */
+   text-align: left;
+   padding: 2vh;
+}
+li:hover {
+    background-color: hsla(180, 33%, 98%, .5);
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
 }
 
 .selected-product {
@@ -106,6 +128,9 @@ body {
   .product-select {
       height: 100%; 
   }
+  .product-select :hover {
+      cursor: pointer;
+  }
 
   h4 {
      
@@ -129,13 +154,16 @@ body {
   /*Modal styles*/
 
 .Modal {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    background-color: hsl(0, 0%, 96%); 
+    background-color: hsl(0, 0%, 89%); 
     margin-top: 5%;
     margin-left: 2%;
     height:80%; 
     width:95%;
     max-height: 80%;
+    padding:3vh;
     overflow: scroll;
 }
 .Overlay {
@@ -147,13 +175,41 @@ body {
     background-color: hsla(240, 4%, 39%, .8);
   }
 
+  .modal-button {
+      align-self: flex-end;
+      background-color: hsla(188, 51%, 47%, .8);
+      padding: 1.5vh;
+      font-size: 2vh;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 4px;
+      text-align: center;
+  }
+
+  .modal-text {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vh;
+    height: 100%;
+    
+  }
+
+  .modal-title, h5 {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+  }
+
 
   /*All anchor tags*/
   a {
      text-decoration: none !important;
-     color: hsl(0, 0%, 92%);
+     color: hsl(0, 0%, 95%);
   }
 
+  .here-tags {
+      color: hsl(0, 0%, 30%) !important;
+  }
 /*Main product display*/
 .main-logo {
     

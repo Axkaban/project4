@@ -26990,7 +26990,7 @@ var App = function (_Component) {
         key: 'selectFromType',
         value: function selectFromType(type) {
 
-            console.log('click');
+            //  console.log('click');
             // Axios.get(`/products/${1}`)
             // .then(data => {
             //     console.log(data);
@@ -27019,7 +27019,7 @@ var App = function (_Component) {
             var product = this.state.product.find(function (p) {
                 return p.id === id;
             });
-            console.log(product);
+            // console.log(product);
             this.setState(function (state) {
                 state.currentProduct = product;
                 return state;
@@ -27047,7 +27047,7 @@ var App = function (_Component) {
             });
 
             _axios2.default.get('https://www.malla.io/api/-KiWU-80CKf3jtWPNhnL.json?format=raw').then(function (data) {
-                console.log(data.data);
+                // console.log(data.data)
                 _this2.setState(function (state) {
                     state.textOnModal = data.data;
                     return state;
@@ -27059,7 +27059,7 @@ var App = function (_Component) {
 
         //To show modal of information
         value: function openModal() {
-            console.log('click');
+            // console.log('click');
             this.setState(function (state) {
                 state.showModal = true;
                 return state;
@@ -27181,7 +27181,7 @@ var App = function (_Component) {
                                 _react2.default.createElement('br', null),
                                 _react2.default.createElement(
                                     'a',
-                                    { href: 'https://archive.epa.gov/epawaste/nonhaz/municipal/web/html/' },
+                                    { className: 'here-tags', href: 'https://archive.epa.gov/epawaste/nonhaz/municipal/web/html/' },
                                     'here'
                                 ),
                                 '.',
@@ -27191,7 +27191,7 @@ var App = function (_Component) {
                                 ' you can click ',
                                 _react2.default.createElement(
                                     'a',
-                                    { href: 'http://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTURBANDEVELOPMENT/0,,contentMDK:23172887~pagePK:210058~piPK:210062~theSitePK:337178,00.html' },
+                                    { className: 'here-tags', href: 'http://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTURBANDEVELOPMENT/0,,contentMDK:23172887~pagePK:210058~piPK:210062~theSitePK:337178,00.html' },
                                     'here'
                                 ),
                                 '.'

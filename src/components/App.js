@@ -41,7 +41,7 @@ class App extends Component {
 // for the objects in the product state that have it. sets productSelection's state with it.
      selectFromType(type){
     
-         console.log('click');
+        //  console.log('click');
         // Axios.get(`/products/${1}`)
         // .then(data => {
         //     console.log(data);
@@ -68,7 +68,7 @@ class App extends Component {
     // Specific view of product with details passed to state
     singleProduct(id){
         const product = this.state.product.find(p => p.id ===id);
-        console.log(product);
+        // console.log(product);
         this.setState((state)=>{
             state.currentProduct= product;
             return state;
@@ -93,7 +93,7 @@ class App extends Component {
 
         Axios.get('https://www.malla.io/api/-KiWU-80CKf3jtWPNhnL.json?format=raw')
         .then(data => { 
-            console.log(data.data)
+            // console.log(data.data)
             this.setState((state)=> {
                 state.textOnModal= data.data;
                 return state;
@@ -104,7 +104,7 @@ class App extends Component {
     };
     //To show modal of information
     openModal(){
-        console.log('click');
+        // console.log('click');
         this.setState((state)=>{
             state.showModal = true;
             return state;
@@ -202,10 +202,10 @@ class App extends Component {
                 <div>
                     <p className="modal-text">If you are interested in learning more about <br/> waste
                     management in the US through the pas years you can click<br/>
-                    <a href="https://archive.epa.gov/epawaste/nonhaz/municipal/web/html/">here</a>.
+                    <a className="here-tags" href="https://archive.epa.gov/epawaste/nonhaz/municipal/web/html/">here</a>.
                     <br/>
                     and If your want to learn about the .68 billion tonnes of average global waste per year,
-                    <br/> you can click <a href="http://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTURBANDEVELOPMENT/0,,contentMDK:23172887~pagePK:210058~piPK:210062~theSitePK:337178,00.html">here</a>.</p>
+                    <br/> you can click <a className="here-tags" href="http://web.worldbank.org/WBSITE/EXTERNAL/TOPICS/EXTURBANDEVELOPMENT/0,,contentMDK:23172887~pagePK:210058~piPK:210062~theSitePK:337178,00.html">here</a>.</p>
                     
                 </div>
 
