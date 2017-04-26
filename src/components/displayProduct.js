@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const DisplayProduct = (props) => {
     if(!props.oneProduct){
-        return <h1>Bio-me</h1>;
+        return <img src="../bio-me-logo.png" />;
     }
    
     return (

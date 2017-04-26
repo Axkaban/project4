@@ -19,6 +19,11 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.nav-logo {
+    height: 80%;
+    width:10vh;
+}
 /*Display and type scroll--------------*/
 
 .product-display{

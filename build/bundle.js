@@ -62716,11 +62716,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var DisplayProduct = function DisplayProduct(props) {
     if (!props.oneProduct) {
-        return _react2.default.createElement(
-            'h1',
-            null,
-            'Bio-me'
-        );
+        return _react2.default.createElement('img', { src: '../bio-me-logo.png' });
     }
 
     return _react2.default.createElement(
@@ -62795,6 +62791,7 @@ var NavBar = function (_Component) {
             return _react2.default.createElement(
                 'nav',
                 { className: 'navbar' },
+                _react2.default.createElement('img', { className: 'nav-logo', src: '../media/images/biome-logo.jpg', alt: '' }),
                 _react2.default.createElement(
                     'h1',
                     null,
@@ -62805,12 +62802,16 @@ var NavBar = function (_Component) {
                     { onClick: function onClick() {
                             _this2.props.modalOpener();
                         } },
-                    'Learn about Biodegradability'
+                    'Learn About Biodegradability'
                 ),
                 _react2.default.createElement(
                     'h3',
                     null,
-                    'For Companies'
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'mailto:axelkaban@gmail.com' },
+                        'Have A Company? Contact me'
+                    )
                 )
             );
         }
