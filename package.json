@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "bio-products hub",
   "main": "index.js",
+   "engines":{
+    "node": "6.9.5"
+  },
   "scripts": {
-    "build": "webpack --watch",
-    "start": "node index.js --watch"
+    "build": "webpack",
+    "start": "node index.js"
   },
   "author": "Axel Kaban",
   "license": "ISC",
+  
   "dependencies": {
     "axios": "^0.16.1",
     "body-parser": "^1.17.1",
